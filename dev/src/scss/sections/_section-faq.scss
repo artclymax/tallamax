@@ -1,0 +1,43 @@
+@use "../tools" as *;
+
+.section-faq {
+	padding-top: var(--section-padding);
+	&.delivery-faq {
+		padding-top: var(--section-padding-05);
+	}
+	&__container {
+	}
+
+	&__list {
+		width: 100%;
+		gap: 24px;
+		--min: 580px;
+		align-items: start;
+
+		@include media($laptop-sm) {
+			--min: 440px;
+		}
+		@include media($tablet) {
+			--min: 340px;
+		}
+	}
+}
+.spoiler-item {
+	&__btn {
+	}
+
+	&__title {
+	}
+
+	&__icon {
+	}
+
+	&__content {
+	}
+
+	&__content-wrapper {
+	}
+
+	&__descr {
+	}
+}

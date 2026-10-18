@@ -1,0 +1,41 @@
+@use "../tools" as *;
+
+.delivery-features {
+	&__container {
+	}
+
+	&__list {
+		gap: 24px;
+
+		@include media($mobile) {
+			--min: 1fr;
+			gap: 12px;
+		}
+	}
+
+	&__item {
+		&:not(:last-child) {
+			@include media($mobile, min) {
+				padding-right: 24px;
+				border-right: 1px solid rgba(#c79f70, 0.2);
+			}
+			@include media($mobile) {
+				padding-bottom: 12px;
+				border-bottom: 1px solid rgba(#c79f70, 0.2);
+			}
+		}
+	}
+}
+.delivery-feature-card {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+
+	&__icon {
+		flex-shrink: 0;
+		@include square(64px);
+	}
+
+	&__title {
+	}
+}

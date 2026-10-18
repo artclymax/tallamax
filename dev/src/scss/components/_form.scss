@@ -1,0 +1,271 @@
+@use "../tools" as *;
+
+.form-wrapper {
+	display: grid;
+	gap: 24px 20px;
+	align-items: start;
+	grid-template-columns: 1fr;
+	align-items: flex-end;
+	@include media($tablet) {
+		gap: 20px;
+	}
+	.wpcf7-spinner {
+		@include reset;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	input[type="submit"],
+	input[type="button"] {
+		text-wrap: wrap;
+	}
+}
+
+.form-wrapper-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	@include media($mobile) {
+		grid-template-columns: 1fr;
+	}
+	.form-field--btn {
+		@include media($mobile, min) {
+			justify-self: start;
+		}
+		.btn {
+			justify-content: center;
+		}
+	}
+}
+
+.form-btn {
+	@include reset-btn;
+	width: initial;
+}
+.form-field-full {
+	grid-column: 1 / -1;
+}
+.form-field > p {
+	@include reset;
+	@include flex-column;
+	gap: 8px;
+
+	.form-field__label {
+	}
+}
+.form-field-acceptance {
+	grid-column: 1 / -1;
+
+	@include media($laptop-sm, min) {
+		order: 4;
+	}
+}
+
+.form-input {
+	border: 1px solid rgba(#c79f70, 0.6);
+	border-radius: 4px;
+	padding: 14px 20px;
+	width: 100%;
+	transition: all 0.3s;
+	color: var(--color-accent);
+	background: var(--color-0);
+	&::placeholder {
+		opacity: 1;
+		color: var(--color-accent-light);
+	}
+
+	@include focus {
+		border-color: var(--color-accent);
+	}
+
+	&.wpcf7-not-valid {
+		border-color: red;
+	}
+}
+.form-textarea {
+	resize: none;
+	height: 70px;
+}
+
+//.form-btn {
+//	flex-shrink: 0;
+//	justify-self: start;
+//	@include media($mobile) {
+//	}
+//	.form-wrapper-grid & {
+//		order: -1;
+//	}
+//}
+// VALID-TIP
+.wpcf7-form-control-wrap {
+	position: relative;
+}
+.wpcf7-not-valid-tip {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	transform: translateY(100%);
+	font-size: 14px;
+}
+
+// ACCEPTANCE
+.wpcf7-acceptance {
+	* {
+		@include reset;
+	}
+
+	input {
+		display: none;
+	}
+	input:checked ~ .wpcf7-list-item-label {
+		.form-checkbox-icon {
+			background-color: var(--color-accent-light);
+			//border-color: var(--color-accent);
+			&::before {
+				opacity: 1;
+			}
+		}
+	}
+	.wpcf7-list-item-label {
+		&::before,
+		&::after {
+			display: none;
+		}
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.form-checkbox-icon {
+		flex-shrink: 0;
+		@include flex-center;
+		@include square(20px);
+		border: 1px solid var(--color-accent-light);
+		border-radius: 3px;
+		background-color: var(--color-0);
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			@include square(100%);
+			@include bgimg(url("../../../public/images/icons/check-icon.svg"));
+			transition: all 0.3s;
+			opacity: 0;
+		}
+	}
+
+	.form-checkbox-text {
+		//
+		font-size: 14px;
+		color: var(--color-accent-light);
+
+		a {
+			//text-decoration: none;
+			color: inherit;
+			transition: all 0.3s;
+			@include hover {
+				color: var(--color-accent);
+			}
+		}
+	}
+}
+
+//! CUSTOM FILE BTN
+.form-file {
+	display: none;
+}
+.file-label {
+	border: 2px dashed var(--color-gray-text);
+	padding: 8px 24px;
+	background: rgba(255, 255, 255, 0.05);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	border-radius: 10px;
+	font-weight: 500;
+	color: var(--color-gray-dark);
+	background: rgba(255, 255, 255, 0.6);
+	&::before {
+		content: "";
+		flex-shrink: 0;
+		display: inline-flex;
+		@include square(20px);
+		@include bgimg(url("../../../public/images/icons/file-icon-2.svg"));
+	}
+	&__text {
+		display: none;
+	}
+}
+.file-text {
+	@include flex-column;
+	gap: 4px;
+	p {
+		@include reset;
+		@include flex-column;
+		gap: 4px;
+	}
+
+	span {
+		opacity: 0.4;
+	}
+
+	.title-font {
+		font-family: var(--font-family-title);
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 120%;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		opacity: 1;
+	}
+}
+
+//!=============================
+.form-wrapper-subscribe {
+	.form-row {
+		display: flex;
+		position: relative;
+	}
+
+	.form-field--email {
+		flex-grow: 1;
+	}
+	.form-field--btn {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		flex-shrink: 0;
+
+		p {
+			height: 100%;
+		}
+		.btn {
+			padding-inline: adapt(40, 12, $mobile);
+		}
+		.btn,
+		.form-btn {
+			height: 100%;
+		}
+	}
+}
+.custom-select-hidden {
+	display: none;
+}
+.form-field {
+	.custom-select {
+		&__select-field {
+			padding: 14px 20px;
+			border: 1px solid rgba(#c79f70, 0.6);
+			border-radius: 4px;
+			color: var(--color-accent);
+			justify-content: space-between;
+			font-size: 14px;
+		}
+		&__btn {
+			font-size: 14px;
+		}
+	}
+}

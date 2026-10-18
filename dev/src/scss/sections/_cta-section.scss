@@ -1,0 +1,43 @@
+@use "../tools" as *;
+
+.cta-section {
+	&__container {
+	}
+
+	&__wrapper {
+		width: 100%;
+		border-radius: 16px;
+		border: 1px solid var(--color-accent);
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px adapt(14, 0, $tablet);
+		align-items: center;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+		padding: adapt(42, 12) adapt(40, 12);
+		@include flex-column;
+		align-items: flex-start;
+		gap: adapt(32, 20, $tablet);
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+
+	&__btn {
+	}
+
+	&__image {
+		border-radius: 20px;
+		overflow: hidden;
+		min-height: adapt(278, 150);
+		height: 100%;
+	}
+}

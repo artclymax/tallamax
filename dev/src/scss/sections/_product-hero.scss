@@ -1,0 +1,286 @@
+@use "../tools" as *;
+
+.product-hero {
+	padding-top: calc(var(--header-height) + adapt(56, 24)); //var(--header-height);
+	&__container {
+		@include flex-column;
+		gap: 30px;
+	}
+	&__breadcrumbs {
+	}
+	&__wrapper {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: start;
+		gap: 60px adapt(60, 24, $tablet);
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+	&__gallery {
+		display: grid;
+		gap: adapt(20, 10);
+		align-items: start;
+	}
+
+	&__main-swiper {
+		width: 100%;
+		margin: unset !important;
+		padding: unset !important;
+	}
+
+	&__slide {
+	}
+
+	&__image {
+		height: adapt(500, 290);
+		border-radius: 20px;
+		overflow: hidden;
+		border: 1px solid var(--color-accent);
+	}
+
+	&__thumbs-swiper {
+		width: 100%;
+		margin: unset !important;
+		padding: unset !important;
+	}
+
+	&__thumb {
+		cursor: pointer;
+	}
+
+	&__thumb-image {
+		height: adapt(154, 90);
+		border-radius: 12px;
+		overflow: hidden;
+		border: 1px solid rgba(#c79f70, 0.2);
+		transition: all 0.3s;
+		.swiper-slide-thumb-active & {
+			border-color: var(--color-accent);
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		align-items: flex-start;
+	}
+
+	&__labels {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__title {
+		text-transform: uppercase;
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__subtitle {
+		font-weight: 500;
+		color: var(--color-accent);
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__descr {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__attr {
+		&:not(:last-child) {
+			margin-bottom: adapt(32, 20);
+		}
+	}
+
+	&__price {
+		@include flex-column;
+		align-items: baseline;
+		&:not(:last-child) {
+			margin-bottom: adapt(36, 24);
+		}
+		ins {
+			@include title-2;
+			font-size: 32px;
+			text-decoration: none;
+		}
+		del {
+			@include title-3;
+			font-size: 18px;
+			opacity: 0.2;
+		}
+	}
+
+	&__cart-form {
+		&:not(:last-child) {
+			margin-bottom: adapt(36, 24);
+		}
+	}
+
+	&__cart-actions {
+		display: flex;
+		align-items: center;
+		gap: adapt(24, 10, $tablet);
+	}
+
+	&__quantity {
+		flex-shrink: 0;
+	}
+
+	&__add-btn {
+		padding: 14px adapt(40, 12);
+
+		span {
+		}
+	}
+
+	&__add-btn-text {
+		display: flex;
+		gap: adapt(12, 8);
+		align-items: center;
+		&::after {
+			content: "";
+			@include square(24px);
+			flex-shrink: 0;
+			@include bgimg(url("../../../public/images/icons/cart--dark.svg"));
+		}
+	}
+	.wc-forward {
+		display: none;
+	}
+	&__out-of-stock {
+	}
+
+	&__features {
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 32);
+		}
+	}
+
+	&__specs {
+	}
+}
+
+.quantity-box {
+	display: inline-flex;
+	border-radius: 4px;
+	border: 1px solid var(--color-accent);
+	font-weight: 600;
+
+	input[type="number"]::-webkit-outer-spin-button,
+	input[type="number"]::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	/* Отключаем стрелочки для Firefox */
+	input[type="number"] {
+		-moz-appearance: textfield;
+	}
+	&__btn {
+		@include reset-btn;
+		width: initial;
+		padding: 12px adapt(20, 12, $tablet);
+		color: var(--color-accent);
+	}
+
+	&__btn--minus {
+		padding-right: 12px;
+	}
+
+	&__input {
+		background: var(--color-0);
+		border: none;
+		padding: 14px 0;
+		width: 42px;
+		text-align: center;
+	}
+
+	&__btn--plus {
+		padding-left: 12px;
+	}
+}
+
+.btn--disabled {
+	opacity: 0.2;
+}
+
+.features-list {
+	@include reset-list;
+	width: 100%;
+	--min: 120px;
+	gap: adapt(36, 20, $tablet);
+	padding-top: adapt(32, 24, $tablet);
+	border-top: 1px solid rgba(#c79f70, 0.2);
+
+	@include media($mobile) {
+		--min: 1fr;
+	}
+
+	&__item {
+		@include flex-column;
+		gap: 8px;
+
+		@include media($mobile) {
+			flex-direction: row;
+		}
+	}
+
+	&__icon {
+		@include square(44px);
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 4px;
+	}
+
+	&__title {
+		color: var(--color-accent);
+	}
+
+	&__descr {
+		font-size: 14px;
+	}
+}
+
+.specs-list {
+	@include reset-list;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 16px;
+	font-size: 14px;
+
+	@include media($mobile) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		&:not(:last-child) {
+			&::after {
+				content: "·";
+				margin-left: 8px;
+			}
+		}
+	}
+
+	&__icon {
+		@include square(24px);
+	}
+
+	&__text {
+	}
+}

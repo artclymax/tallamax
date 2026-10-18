@@ -1,0 +1,137 @@
+@use "../tools" as *;
+
+.section-full {
+}
+.shop-page {
+	&__container {
+	}
+
+	.products {
+		width: 100%;
+		grid-template-columns: repeat(var(--grid-col, 4), 1fr);
+		gap: adapt(24, 8, $mobile);
+
+		@include media($mobile) {
+			grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+		}
+	}
+
+	// chips
+	.wpc-filter-chips-list {
+		display: none !important;
+	}
+}
+
+.shop-header-bar {
+	@include flex-column;
+	width: 100%;
+	position: relative;
+	z-index: 5;
+	&__categories {
+		&:not(:last-child) {
+			margin-bottom: adapt(24, 20);
+		}
+	}
+
+	&__filter {
+		&:not(:last-child) {
+			margin-bottom: adapt(32, 20);
+		}
+	}
+
+	&__counter {
+	}
+
+	// category
+	.section-products {
+		&__btn-list {
+		}
+
+		&__btn-item {
+		}
+
+		&__btn {
+			&.active {
+				color: var(--color-accent);
+				padding: 8px adapt(32, 20, $tablet);
+				border: 1px solid var(--color-accent);
+				border-radius: 4px;
+			}
+		}
+	}
+}
+
+.filter-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px adapt(100, 16, $tablet);
+	z-index: 2;
+	@include media($tablet) {
+		flex-wrap: wrap;
+	}
+	&__filter {
+		flex-grow: 1;
+	}
+
+	&__btn {
+		@include reset-link;
+		flex-shrink: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+
+		border: 1px solid var(--color-accent);
+		border-radius: 4px;
+		padding: 8px adapt(32, 20, $tablet);
+
+		color: var(--color-accent);
+		transition: all 0.3s;
+		@include media($mobile) {
+			width: 100%;
+		}
+		@include hover {
+			color: var(--color-brown);
+			&::after {
+				transform: rotate(-180deg);
+			}
+		}
+
+		&::after {
+			content: "";
+			@include square(24px);
+			transition: all 0.3s;
+
+			@include bgimg(url("../../../public/images/icons/reset.svg"));
+		}
+	}
+
+	// filter
+	.wpc-filters-widget-wrapper {
+		gap: 16px;
+		display: flex !important;
+	}
+	.wpc-filters-section {
+		@include reset;
+		max-width: initial !important;
+		width: initial !important;
+		margin-right: unset !important;
+		min-width: 240px;
+
+		@include media($mobile) {
+			flex: 1 1 100%;
+		}
+	}
+	.wpc-filter-header {
+		display: none;
+	}
+	.wpc-filter-content {
+		select {
+			display: none;
+		}
+	}
+	.wpc-edit-filter-set {
+		display: none;
+	}
+}

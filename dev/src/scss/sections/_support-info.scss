@@ -1,0 +1,56 @@
+@use "../tools" as *;
+
+.support-info {
+	position: relative;
+
+	&__container {
+	}
+
+	&__cards {
+		--min: #{adapt(384, 300)};
+		--gap: 12px 24px;
+	}
+
+	&__card {
+	}
+}
+
+.support-info-card {
+	background: unset;
+	overflow: hidden;
+	position: relative;
+
+	padding: adapt(20, 12, $mobile);
+	padding-bottom: adapt(100, 80);
+
+	&__content {
+		@include flex-column;
+		gap: 16px;
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
+	&__icon {
+		@include square(32px);
+		display: flex;
+		flex-shrink: 0;
+	}
+
+	&__title {
+		color: var(--color-accent);
+	}
+
+	&__descr {
+		color: var(--color-text-light-2);
+		font-size: 14px;
+	}
+
+	&__bg {
+		@include abs-cover;
+		z-index: -1;
+	}
+}

@@ -1,0 +1,81 @@
+@use "@/scss/tools" as *;
+
+.woocommerce-pagination .page-numbers,
+.pagination-page {
+	@include reset;
+	list-style-type: none;
+	display: flex;
+	overflow: auto;
+	gap: 8px;
+	justify-content: center;
+	//margin-top: adapt(40, 20);
+
+	.page-numbers {
+		color: inherit;
+		text-decoration: none;
+		background: var(--color-light);
+		color: var(--color-accent);
+		@include square(40px);
+		//padding: 10px 14px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 2px;
+		border: 1px solid var(--color-accent);
+		transition: all 0.3s;
+		min-width: 35px;
+		font-size: 14px;
+		font-weight: 700;
+
+		&:not(.dots) {
+			@include hover {
+				//background: var(--color-accent);
+				//border-color: var(--color-accent);
+				//color: var(--color-blue);
+				color: var(--color-light);
+
+				background: var(--color-accent-hover);
+			}
+		}
+	}
+	.current {
+		background: var(--color-accent);
+		color: var(--color-light);
+		transition: all 0.3s;
+	}
+	.dots {
+	}
+	.next,
+	.prev {
+		border: 0;
+		color: var(--color-accent);
+		background: transparent;
+		padding: 10px 4px;
+		svg {
+			@include square(16px);
+			transition: all 0.3s;
+		}
+		@include hover {
+			background: transparent !important;
+			border-color: transparent !important;
+			color: var(--color-accent) !important;
+		}
+	}
+	.next {
+		@include hover {
+			svg {
+				transform: translateX(2px);
+			}
+		}
+	}
+	.prev {
+		@include hover {
+			svg {
+				transform: translateX(-2px);
+			}
+		}
+	}
+}
+.pagination-arrow {
+	display: none;
+}

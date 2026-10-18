@@ -1,0 +1,10 @@
+@use "../tools" as *;
+
+.section-origin {
+	position: relative;
+
+	.section-stages-card {
+		min-height: adapt(268, 240);
+		padding: adapt(20, 12, $finishBreakpoint, $tablet);
+	}
+}

@@ -1,0 +1,27 @@
+@use "../tools" as *;
+
+.section-key-ingredient {
+	padding-bottom: var(--section-padding-05);
+
+	.section-about__content {
+		@include media($laptop-sm) {
+			flex: 0 1 47%;
+		}
+
+		.section-header {
+			&__title {
+				max-width: 356px;
+
+				@include media($tablet) {
+					max-width: 324px;
+				}
+			}
+		}
+	}
+
+	.section-about-value {
+		&__icon {
+			@include square(64px);
+		}
+	}
+}

@@ -1,0 +1,46 @@
+@use "../tools" as *;
+@use "components" as *;
+
+.delivery-countries {
+	&__container {
+	}
+
+	&__list {
+		--min: 580px;
+		gap: 24px;
+
+		@include media($tablet) {
+			--min: 340px;
+		}
+	}
+
+	&__item {
+	}
+}
+
+.delivery-card {
+	@include card-box;
+	display: flex;
+	gap: 16px;
+	padding: adapt(20, 12);
+	&__icon {
+		flex-shrink: 0;
+		@include square(96px);
+		img {
+			width: 100%;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 12px;
+	}
+
+	&__title {
+		color: var(--color-accent);
+	}
+
+	&__descr {
+		font-size: 14px;
+	}
+}

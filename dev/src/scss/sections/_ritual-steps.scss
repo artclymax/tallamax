@@ -1,0 +1,89 @@
+@use "../tools" as *;
+
+.ritual-steps {
+	padding-top: var(--section-padding);
+
+	&.about-ritual-steps {
+		padding-block: var(--section-padding-05);
+	}
+
+	&__container {
+	}
+
+	.section-header {
+		max-width: 690px;
+	}
+
+	&__list {
+		width: 100%;
+		gap: 24px;
+		overflow: hidden;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+	&__card {
+	}
+}
+
+.ritual-steps-card {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	position: relative;
+
+	&:not(:last-child) {
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			right: -1.5px;
+			transform: translateY(-50%) translateX(100%);
+			@include square(24px);
+			@include bgimg(url("../../../public/icons/swiper-btn-next.svg"));
+
+			@include media($mobile) {
+				top: unset;
+				bottom: -1.5px;
+				right: 50%;
+				transform: translateX(50%) translateY(100%) rotate(90deg);
+			}
+		}
+	}
+	&__content {
+		@include flex-column;
+		gap: 10px;
+	}
+
+	&__number {
+		@include flex-column;
+		gap: 10px;
+		color: var(--color-accent);
+
+		&::after {
+			content: "";
+
+			width: 32px;
+			height: 1px;
+			background: var(--color-accent);
+		}
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		font-size: 14px;
+		font-weight: 300;
+	}
+
+	&__image {
+		flex-shrink: 0;
+		@include square(112px);
+		border-radius: 50%;
+		overflow: hidden;
+		border: 2px solid var(--color-accent);
+	}
+}

@@ -1,0 +1,132 @@
+@use "../tools" as *;
+
+.section-about {
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 44px;
+
+		@include media($tablet) {
+			flex-direction: column;
+			align-items: normal;
+		}
+	}
+
+	&__image {
+		flex: 0 1 49%;
+		height: adapt(500, 290, $finishBreakpoint, $tablet);
+
+		border-radius: 20px;
+		border: 1px solid var(--color-accent);
+		overflow: hidden;
+
+		@include media($tablet) {
+			flex: unset;
+		}
+	}
+
+	&__content {
+		flex: 0 1 45%;
+
+		@include flex-column;
+		gap: adapt(32, 20, $mobile);
+
+		.section-header {
+			&__title {
+				max-width: 358px;
+			}
+		}
+	}
+
+	&__quote {
+		@include reset;
+
+		align-items: flex-start;
+		--width: 24px;
+		gap: 10px;
+
+		max-width: 427px;
+		font-size: 14px;
+		color: var(--color-accent);
+
+		@include media($tablet) {
+			max-width: 100%;
+		}
+	}
+
+	&__values {
+		@include reset-list;
+
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 24px 32px;
+
+		@include media($mobile-sm) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__value {
+	}
+}
+
+.section-about-value {
+	position: relative;
+
+	@include flex-column;
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: -16px;
+		transform: translateX(50%);
+		height: 100%;
+		width: 1px;
+		background-color: var(--color-accent);
+		opacity: 0.2;
+
+		@include media($mobile-sm) {
+			top: unset;
+			right: unset;
+			bottom: -12px;
+			left: 0;
+			transform: translateX(0);
+			transform: translateY(50%);
+			width: 100%;
+			height: 1px;
+		}
+	}
+
+	&:last-child {
+		&::after {
+			display: none;
+		}
+	}
+
+	&__icon {
+		@include square(32px);
+		display: flex;
+		flex-shrink: 0;
+
+		&:not(:last-child) {
+			margin-bottom: 16px;
+		}
+	}
+
+	&__title {
+		color: var(--color-accent);
+
+		&:not(:last-child) {
+			margin-bottom: 8px;
+		}
+	}
+
+	&__descr {
+		p {
+			font-size: 14px;
+			letter-spacing: 0%;
+		}
+	}
+}

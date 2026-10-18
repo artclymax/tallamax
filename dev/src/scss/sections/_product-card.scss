@@ -1,0 +1,125 @@
+@use "../tools" as *;
+
+.product-card {
+	display: grid;
+	align-items: start;
+	border: 1px solid var(--color-accent);
+	border-radius: adapt(20, 12);
+	color: var(--color-text-light-2);
+	background: var(--color-bg-card);
+	grid-template-rows: adapt(320, 200) auto;
+	transition: all 0.3s;
+	position: relative;
+
+	@include hover {
+		transform: translateY(-6px);
+		box-shadow: 0 0 10px 0 rgba(211, 178, 139, 0.3);
+	}
+	&__labels {
+		position: absolute;
+		z-index: 2;
+		top: adapt(16, 6, $tablet);
+		left: adapt(16, 6, $tablet);
+	}
+
+	&__image-link {
+		display: flex;
+		height: adapt(320, 200);
+		border-radius: 20px;
+		overflow: hidden;
+		grid-column: 1;
+		grid-row: 1;
+
+		@include hover {
+			img {
+				transform: scale(1.1);
+			}
+		}
+
+		img {
+			transition: all 0.3s;
+		}
+	}
+
+	&__content {
+		padding-block: 12px adapt(20, 8, $tablet);
+		padding-inline: adapt(20, 8, $tablet);
+		@include flex-column;
+		gap: 10px;
+		height: 100%;
+	}
+
+	&__title {
+		text-transform: uppercase;
+	}
+
+	&__title-link {
+		@include reset-link;
+	}
+
+	&__descr {
+		font-size: 14px;
+		font-weight: 300;
+		line-height: 140%;
+	}
+
+	&__attr {
+		font-size: 12px;
+		font-weight: 300;
+		line-height: 140%;
+	}
+
+	&__price-box {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		justify-content: space-between;
+		padding-top: 12px;
+		border-top: 1px solid rgba(199, 159, 112, 0.2);
+		margin-top: auto;
+	}
+
+	&__price {
+		@include flex-column;
+		@include title-3;
+
+		@include media($mobile) {
+			font-size: 18px;
+		}
+
+		ins {
+			text-decoration: none;
+		}
+		del {
+			font-size: 14px;
+			opacity: 0.2;
+		}
+	}
+
+	&__btn-box {
+		flex-shrink: 0;
+		.button {
+			@include reset-link;
+			color: var(--color-accent);
+			//font-size: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.3s;
+
+			@include hover {
+				span {
+					transform: scale(1.1);
+
+					&::before {
+						transform: scale(1.2);
+					}
+				}
+			}
+		}
+
+		.added_to_cart.wc-forward {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,97 @@
+@use "../tools" as *;
+
+.section-stages {
+	&__container {
+	}
+
+	&__cards {
+		@include reset-list;
+
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 24px;
+		width: 100%;
+
+		@include media($tablet) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__card {
+	}
+}
+
+.section-stages-card {
+	position: relative;
+	z-index: 1;
+	display: flex;
+
+	&:not(:last-child) {
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			right: -1.5px;
+			transform: translateY(-50%) translateX(100%);
+			@include square(24px);
+			@include bgimg(url("../../../public/icons/swiper-btn-next.svg"));
+
+			@include media($tablet) {
+				top: unset;
+				bottom: -1.5px;
+				right: 50%;
+				transform: translateX(50%) translateY(100%) rotate(90deg);
+			}
+		}
+	}
+
+	&__bg {
+		@include abs-cover;
+		z-index: -1;
+		border-radius: 20px;
+		overflow: hidden;
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 10px;
+		flex-grow: 1;
+		max-width: 220px;
+	}
+
+	&__number {
+		font-size: 24px;
+		color: var(--color-accent);
+		padding-bottom: 10px;
+		align-self: flex-start;
+		position: relative;
+
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			transform: translateY(-50%);
+			width: 32px;
+			height: 1px;
+			background-color: var(--color-accent);
+		}
+	}
+
+	&__title {
+		font-size: 24px;
+	}
+
+	&__descr {
+		flex-grow: 1;
+
+		p {
+			color: var(--color-text-light-2);
+			font-size: 14px;
+		}
+	}
+
+	&__btn {
+		padding: 12px 20px;
+	}
+}

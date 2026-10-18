@@ -1,0 +1,45 @@
+@use "../tools" as *;
+
+.section-our-values {
+	&__container {
+	}
+
+	&__list {
+		width: 100%;
+		--min: 282px;
+		--gap: 12px 24px;
+	}
+
+	&__item {
+	}
+}
+
+.section-our-values-item {
+	padding: adapt(20, 12, $mobile);
+	display: flex;
+	gap: 10px;
+
+	&__icon {
+		@include square(64px);
+		display: flex;
+		flex-shrink: 0;
+	}
+
+	&__content {
+	}
+
+	&__title {
+		color: var(--color-text-light-2);
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__descr {
+		p {
+			font-size: 14px;
+			letter-spacing: 0%;
+		}
+	}
+}

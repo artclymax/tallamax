@@ -1,0 +1,98 @@
+@use "../tools" as *;
+.section-decor--bottom {
+	top: unset;
+	bottom: 0;
+}
+.about-mushrooms {
+	--about-mushrooms-slide-height: 480px;
+	position: relative;
+	margin-top: var(--section-padding-05);
+
+	&__container {
+		--width: #{adapt(588, 340, $mobile)};
+		--gap: #{adapt(64, 24, $tablet)};
+
+		@include media($tablet) {
+			flex-direction: column;
+			gap: 32px;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 32px;
+		@include media($tablet) {
+			margin-right: var(--container-padding);
+		}
+	}
+
+	&__links {
+		@include reset-list;
+		display: flex;
+		align-items: center;
+		gap: adapt(24, 8);
+		flex-wrap: wrap;
+	}
+
+	&__links-item {
+		&:not(:last-child) {
+			display: flex;
+			align-items: center;
+			gap: adapt(24, 8);
+			&::after {
+				content: "";
+				flex-shrink: 0;
+				@include square(6px);
+				background: var(--color-accent);
+				border-radius: 50%;
+			}
+		}
+	}
+
+	&__link {
+		@include reset-link;
+		font-weight: 500;
+		color: var(--color-accent);
+		font-family: var(--font-family-secondary);
+		transition: all 0.3s;
+		@include hover {
+			opacity: 0.8;
+		}
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+
+	&__slider {
+		@include flex-column;
+		justify-content: flex-end;
+	}
+}
+.about-mushrooms-swiper {
+	&__wrapper {
+	}
+
+	&__pagination {
+	}
+}
+.about-mushrooms-slide {
+	width: 320px !important;
+	&__wrapper-link {
+		border-radius: 20px;
+		overflow: hidden;
+		border: 1px solid var(--color-accent);
+		display: flex;
+		height: var(--about-mushrooms-slide-height);
+		img {
+			transition: all 0.3s;
+		}
+		@include hover {
+			img {
+				transform: scale(1.1);
+			}
+		}
+	}
+}

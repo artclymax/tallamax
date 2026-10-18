@@ -1,0 +1,16 @@
+@use "../tools" as *;
+
+.product-details {
+	padding-bottom: unset;
+	&__container {
+	}
+
+	&__list {
+		gap: 24px;
+	}
+
+	&__col {
+		@include flex-column;
+		gap: 24px;
+	}
+}

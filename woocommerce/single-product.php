@@ -1,0 +1,11 @@
+<?php
+get_header();
+get_template_part('partials/product/product-hero');
+get_template_part('partials/product/product-details');
+get_template_part('partials/ritual-steps');
+get_template_part('partials/product/section-pairing');
+get_template_part('partials/section-image');
+get_template_part('partials/product/section-reviews');
+get_template_part('partials/cta-section');
+get_footer();
+?>

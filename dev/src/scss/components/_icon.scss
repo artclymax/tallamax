@@ -1,0 +1,67 @@
+@use "../tools" as *;
+
+.icon {
+	--width: 20px;
+	--height: var(--width);
+	--bg-size: contain;
+	--bg-color: var(--color-0);
+
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+
+	&::before {
+		content: "";
+		flex-shrink: 0;
+		//margin-top: 6px;
+		width: var(--width);
+		height: var(--height);
+		background-position: center;
+		background-size: var(--bg-size);
+		background-repeat: no-repeat;
+		background-color: var(--bg-color);
+		background-image: var(--icon-bg);
+	}
+
+	&--after {
+		&::before {
+			display: none;
+		}
+		&::after {
+			content: "";
+			flex-shrink: 0;
+			width: var(--width);
+			height: var(--height);
+			background-position: center;
+			background-size: var(--bg-size);
+			background-repeat: no-repeat;
+			background-color: var(--bg-color);
+			background-image: var(--icon-bg);
+		}
+	}
+}
+
+.icon--arrow-right {
+	--icon-bg: url("../../../public/icons/arrow-right.svg");
+}
+
+.icon--email {
+	--icon-bg: url("../../../public/icons/email.svg");
+}
+.icon--email-stroke {
+	--icon-bg: url("../../../public/icons/email-stroke.svg");
+}
+.icon--phone {
+	--icon-bg: url("../../../public/icons/phone.svg");
+}
+
+.icon--info {
+	--icon-bg: url("../../../public/icons/info.svg");
+}
+
+.icon--document {
+	--icon-bg: url("../../../public/icons/document.svg");
+}
+.icon--quotes {
+	--icon-bg: url("../../../public/icons/quotes.svg");
+}

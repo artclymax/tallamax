@@ -1,0 +1,65 @@
+@use "../tools" as *;
+
+.section-products {
+	position: relative;
+
+	&__container {
+	}
+
+	&__header {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+
+	&__title {
+	}
+
+	&__btn-list {
+		@include reset-list;
+		display: flex;
+		align-items: center;
+		gap: adapt(16, 12, $tablet);
+		font-weight: 500;
+		color: var(--color-text-light-2);
+		overflow-x: auto;
+		padding-bottom: 10px;
+		margin-bottom: -10px;
+	}
+
+	&__btn-item {
+		display: flex;
+		align-items: center;
+		gap: adapt(16, 12, $tablet);
+		flex-shrink: 0;
+		&:not(:last-child) {
+			&::after {
+				content: "";
+				flex-shrink: 0;
+				width: 1px;
+				height: 20px;
+				background-color: var(--color-bg-light);
+			}
+		}
+	}
+
+	&__btn {
+		&.btn {
+			padding: 8px adapt(32, 20, $tablet);
+		}
+	}
+
+	&__slider {
+	}
+
+	&__no-products {
+	}
+}
+
+.products-swiper {
+	&__wrapper {
+	}
+}

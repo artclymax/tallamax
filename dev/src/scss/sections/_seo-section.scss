@@ -1,0 +1,15 @@
+@use "../tools" as *;
+
+.seo-section {
+	padding-top: unset;
+	&__container {
+		@include flex-column;
+		gap: adapt(32, 20);
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+}

@@ -1,0 +1,169 @@
+@font-face {
+	font-family: 'Lora';
+	src:
+		url('./fonts/Lora-Bold.woff2') format('woff2'),
+		url('./fonts/Lora-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Lora';
+	src:
+		url('./fonts/Lora-BoldItalic.woff2') format('woff2'),
+		url('./fonts/Lora-BoldItalic.woff') format('woff');
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Lora-VF';
+	src:
+		url('./fonts/Lora-Italic-VariableFont_wght.woff2') format('woff2-variations'),
+		url('./fonts/Lora-Italic-VariableFont_wght.woff') format('woff');
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Lora';
+	src:
+		url('./fonts/Lora-Italic.woff2') format('woff2'),
+		url('./fonts/Lora-Italic.woff') format('woff');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Lora';
+	src:
+		url('./fonts/Lora-Medium.woff2') format('woff2'),
+		url('./fonts/Lora-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Lora';
+	src:
+		url('./fonts/Lora-MediumItalic.woff2') format('woff2'),
+		url('./fonts/Lora-MediumItalic.woff') format('woff');
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Lora';
+	src:
+		url('./fonts/Lora-Regular.woff2') format('woff2'),
+		url('./fonts/Lora-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Lora';
+	src:
+		url('./fonts/Lora-SemiBold.woff2') format('woff2'),
+		url('./fonts/Lora-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Lora';
+	src:
+		url('./fonts/Lora-SemiBoldItalic.woff2') format('woff2'),
+		url('./fonts/Lora-SemiBoldItalic.woff') format('woff');
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Lora-VF';
+	src:
+		url('./fonts/Lora-VariableFont_wght.woff2') format('woff2-variations'),
+		url('./fonts/Lora-VariableFont_wght.woff') format('woff');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Manrope';
+	src:
+		url('./fonts/Manrope-Bold.woff2') format('woff2'),
+		url('./fonts/Manrope-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Manrope';
+	src:
+		url('./fonts/Manrope-ExtraLight.woff2') format('woff2'),
+		url('./fonts/Manrope-ExtraLight.woff') format('woff');
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Manrope';
+	src:
+		url('./fonts/Manrope-Light.woff2') format('woff2'),
+		url('./fonts/Manrope-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Manrope';
+	src:
+		url('./fonts/Manrope-Medium.woff2') format('woff2'),
+		url('./fonts/Manrope-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Manrope';
+	src:
+		url('./fonts/Manrope-Regular.woff2') format('woff2'),
+		url('./fonts/Manrope-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Manrope';
+	src:
+		url('./fonts/Manrope-SemiBold.woff2') format('woff2'),
+		url('./fonts/Manrope-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Manrope-VF';
+	src:
+		url('./fonts/Manrope-VariableFont_wght.woff2') format('woff2-variations'),
+		url('./fonts/Manrope-VariableFont_wght.woff') format('woff');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}

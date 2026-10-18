@@ -1,0 +1,110 @@
+@use "../tools" as *;
+
+.form-select {
+	display: none;
+}
+.custom-select {
+	position: relative;
+
+	&__select-field {
+		@include reset;
+		text-align: left;
+		border: none;
+		background: var(--color-0);
+		width: 100%;
+
+		//================
+		//@include text-caption;
+		font-weight: 500;
+		text-align: center;
+
+		background: var(--color-bg-dark);
+		border: 1px solid var(--color-accent);
+		border-radius: 4px;
+		padding: 8px adapt(32, 20);
+
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		justify-content: center;
+
+		&::after {
+			content: "";
+			flex-shrink: 0;
+			@include square(16px);
+			border-radius: 50%;
+			background-color: var(--color-bg-dark);
+			@include bgimg(url("../../../public/icons/select-icon.svg"), 16px);
+			transition: all 0.3s;
+
+			.custom-select-active & {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		border: 1px solid var(--color-accent);
+		border-radius: 4px;
+		background: var(--color-bg-dark);
+
+		position: absolute;
+		z-index: 5;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		max-height: 200px;
+		overflow: auto;
+		transform: translateY(80%);
+		transition: all 0.3s;
+		opacity: 0;
+		pointer-events: none;
+		visibility: hidden;
+		@include custom-scroll(var(--color-accent), var(--color-bg-card), thin);
+
+		.custom-select-active & {
+			transform: translateY(100%);
+			bottom: -8px;
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+	}
+
+	&__item {
+		&:not(:last-child) {
+			//border-bottom: 1px solid var(--color-accent);
+		}
+	}
+
+	&__btn {
+		@include reset;
+		text-align: left;
+		//text-align: center;
+		border: none;
+		background: var(--color-0);
+		width: 100%;
+		//================
+		//@include text-caption;
+
+		padding: 8px adapt(32, 20);
+		transition: all 0.3s;
+
+		&.custom-select-active {
+			background: var(--color-brown);
+			color: var(--color-white);
+
+			@include hover {
+				background: var(--color-brown);
+			}
+		}
+
+		@include hover {
+			background: var(--color-brown);
+		}
+	}
+}
+.custom-select-active {
+}

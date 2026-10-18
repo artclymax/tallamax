@@ -1,0 +1,102 @@
+@use "../tools" as *;
+
+.header {
+	padding-block: 24px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	@include media($tablet) {
+		padding-block: 10px;
+	}
+	
+	&__container {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+		justify-content: space-between;
+	}
+
+	&__logo {
+	}
+
+	&__menu {
+	}
+
+	&__btn-box {
+		display: flex;
+		align-items: center;
+		gap: adapt(44, 24, $tablet);
+		@include media($tablet) {
+			gap: 8px;
+		}
+	}
+
+	&__btn {
+		flex-shrink: 0;
+		padding-block: 12px;
+		
+	}
+
+	&__cart-btn {
+	}
+
+	&__burger-btn {
+	}
+}
+
+.header-menu {
+	&__main-menu {
+	}
+
+	&__btn {
+	}
+}
+
+.cart-btn {
+	@include flex-center;
+	position: relative;
+	@include square(44px);
+	flex-shrink: 0;
+	@include hover {
+		.cart-btn__icon {
+			transform: scale(1.1);
+			&::after {
+				opacity: 1;
+			}
+		}
+	}
+	&__counter {
+		position: absolute;
+		@include square(16px);
+		@include flex-center;
+		border-radius: 50%;
+		top: 0;
+		right: 0;
+		box-shadow: 0 27px 40px 0 rgba(12, 115, 254, 0.1);
+		background: var(--color-accent-gradient);
+		font-weight: 600;
+		font-size: 10px;
+		color: var(--color-text-dark);
+		//transform: translate(50%, -50%);
+	}
+
+	&__icon {
+		position: relative;
+		display: flex;
+		@include square(24px);
+		@include bgimg(url("../../../public/images/icons/basket-icon-white.svg"), contain);
+		transition: all 0.3s;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			@include square(24px);
+			@include bgimg(url("../../../public/images/icons/basket-icon.svg"), contain);
+			opacity: 0;
+			transition: all 0.3s;
+		}
+	}
+}

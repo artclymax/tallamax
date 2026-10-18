@@ -1,0 +1,28 @@
+@use "../tools" as *;
+
+.delivery-info {
+	&__container {
+	}
+
+	&__list {
+		gap: 24px;
+		--min: 1fr;
+	}
+
+	&__item {
+	}
+}
+
+.delivery-card {
+	&__icon {
+	}
+
+	&__content {
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+}

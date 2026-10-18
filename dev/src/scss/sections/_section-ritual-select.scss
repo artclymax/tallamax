@@ -1,0 +1,70 @@
+@use "../tools" as *;
+
+.section-ritual-select {
+	position: relative;
+	padding-top: var(--section-padding);
+
+	&__container {
+	}
+
+	&__cards {
+		@include reset-list;
+		width: 100%;
+
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 20px;
+
+		@include media($tablet) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__card {
+	}
+
+	&__btn {
+		justify-self: center;
+	}
+}
+
+.section-ritual-select-card {
+	display: flex;
+
+	&__wrapper-link {
+		text-decoration: none;
+		color: inherit;
+
+		@include flex-column;
+		gap: 10px;
+		align-items: center;
+		text-align: center;
+		flex-grow: 1;
+
+		padding: adapt(20, 12, $mobile);
+		transition: all 0.3s;
+
+		@include media($mobile) {
+			flex-direction: row;
+			text-align: left;
+		}
+
+		@include hover {
+			border-color: var(--color-accent);
+		}
+	}
+
+	&__icon {
+		@include square(64px);
+		display: flex;
+		flex-shrink: 0;
+	}
+
+	&__title {
+		color: var(--color-text-light-2);
+	}
+}

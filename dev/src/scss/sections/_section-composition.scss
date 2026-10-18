@@ -1,0 +1,112 @@
+@use "../tools" as *;
+
+.section-composition {
+	position: relative;
+	color: var(--color-text-dark);
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		gap: 44px;
+
+		@include media($mobile) {
+			flex-direction: column;
+		}
+	}
+
+	&__content {
+		flex: 0 1 42%;
+
+		@include flex-column;
+		gap: adapt(32, 20, $mobile);
+
+		.section-header {
+			&__title {
+				color: inherit;
+			}
+		}
+	}
+
+	&__btn {
+		align-self: flex-start;
+	}
+
+	&__cards {
+		@include reset-list;
+
+		flex: 0 1 49%;
+
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: adapt(32, 16);
+
+		position: relative;
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: calc(adapt(16, 8) * -1);
+			transform: translateY(50%);
+			left: 0;
+			width: 100%;
+			height: 10px;
+			background: #e6e3de;
+			z-index: 2;
+		}
+	}
+
+	&__card {
+	}
+
+	&__bg {
+		@include abs-cover;
+		z-index: -1;
+
+		@include media($mobile) {
+			--object-pos: 87%;
+		}
+	}
+}
+
+.section-composition-card {
+	@include flex-column;
+	gap: 16px;
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: calc(adapt(16, 8) * -1);
+		transform: translateY(50%);
+		width: 100%;
+		height: 1px;
+		background: var(--color-accent);
+	}
+
+	&:nth-child(odd) {
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: calc(adapt(16, 8) * -1);
+			transform: translateX(50%);
+			width: 1px;
+			height: 100%;
+			background: var(--color-accent);
+		}
+	}
+
+	&__icon {
+		@include square(64px);
+		display: flex;
+		flex-shrink: 0;
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		font-size: 14px;
+	}
+}

@@ -1,0 +1,75 @@
+@use "../tools" as *;
+@use "components" as *;
+
+.section-whats-next {
+	padding-bottom: var(--section-padding);
+
+	&__container {
+	}
+
+	&__title {
+	}
+
+	&__list {
+		width: 100%;
+		gap: 24px;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__item {
+	}
+}
+
+.whats-next-step {
+	@include card-box;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	padding: 20px adapt(20, 12, $tablet);
+	position: relative;
+
+	&:not(:last-child) {
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			right: -1.5px;
+			transform: translateY(-50%) translateX(100%);
+			@include square(24px);
+			@include bgimg(url("../../../public/icons/swiper-btn-next.svg"));
+
+			@include media($mobile) {
+				top: unset;
+				bottom: -1.5px;
+				right: 50%;
+				transform: translateX(50%) translateY(100%) rotate(90deg);
+			}
+		}
+	}
+	&__icon {
+		flex-shrink: 0;
+		@include flex-center;
+		@include square(64px);
+		border-radius: 50%;
+		border: 1px solid var(--color-accent);
+
+		img {
+			@include square(32px);
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 8px;
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		font-size: 14px;
+	}
+}

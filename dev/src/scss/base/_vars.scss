@@ -1,0 +1,49 @@
+@use "../tools" as *;
+
+:root {
+	--color-0: rgba(0, 0, 0, 0);
+	--color-black: #000;
+	--color-white: #fff;
+
+	// ===== Colors ======
+
+	--color-accent: #c79f70;
+	--color-accent-light: #cab5a4;
+	--color-text-light: #ebebeb;
+	--color-text-light-2: #f3efed;
+	--color-text-dark: #2f2f2f;
+	--color-bg-dark: #120e0b;
+	--color-bg-card: #1a1411;
+	--color-bg-footer: #1f1914;
+	--color-bg-light: #e4d5c4;
+	--color-brown: #6c5b4d;
+	--color-brown-dark: #413629;
+
+	--color-accent-gradient: linear-gradient(180deg, #d3b28b 0%, #c79f6f 100%);
+	--color-accent-gradient-hv: linear-gradient(180deg, #ddb688 0%, #ca9d66 100%);
+
+	--color-btn-stroke-bg: rgba(47, 47, 47, 0.1);
+
+	// ===== Layouts =====
+	--header-height: 82px;
+
+	@include media($mobile) {
+		--header-height: 64px;
+	}
+
+	--section-padding: #{adapt(112, 64)};
+	--section-padding-05: #{adapt(56, 32)};
+
+	--container-width: 1200px;
+	--container-padding: 10px;
+
+	// ===== Fonts =====
+	--font-size-html: 100%;
+	--font-size: 16px;
+
+	--font-family-main: "Manrope-VF", "Manrope", sans-serif;
+	--font-family-secondary: "Lora-VF", "Lora", serif;
+
+	--line-height: 140%;
+	--letter-spacing: 2%;
+}

@@ -1,0 +1,102 @@
+@use "../tools" as *;
+
+.section-subscribe {
+	position: relative;
+
+	&__container {
+	}
+
+	&__wrapper {
+		border: 1px solid var(--color-accent);
+		border-radius: 16px;
+
+		overflow: hidden;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 20px adapt(54, 24, $tablet);
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__image {
+		border-radius: 16px;
+		overflow: hidden;
+		min-height: adapt(384, 190);
+		height: 100%;
+	}
+
+	&__content {
+		padding-block: 24px;
+		padding-right: 40px;
+		@include flex-column;
+		gap: 32px;
+
+		@include media($mobile) {
+			padding-top: unset;
+			padding-inline: 12px;
+		}
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+
+	&__form {
+	}
+
+	&__socials {
+		--pad-inline: #{adapt(32, 24, $tablet)};
+		@include reset-list;
+		display: flex;
+		align-items: center;
+		gap: 16px var(--pad-inline);
+		flex-wrap: wrap;
+		margin-top: auto;
+		@include media($mobile) {
+			justify-content: center;
+		}
+	}
+
+	&__social-item {
+		&:not(:last-child) {
+			padding-right: var(--pad-inline);
+			border-right: 1px solid var(--color-brown);
+		}
+		@include media($mobile) {
+			padding-left: var(--pad-inline);
+			border-left: 1px solid var(--color-brown);
+			&:not(:first-child) {
+				margin-left: calc((var(--pad-inline) + 1px) * -1);
+			}
+			&:last-child {
+				padding-right: var(--pad-inline);
+				border-right: 1px solid var(--color-brown);
+			}
+		}
+	}
+
+	&__social-link {
+		@include reset-link;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		color: var(--color-accent);
+		transition: all 0.3s;
+		padding-block: 4px;
+
+		@include hover {
+			color: var(--color-accent-light);
+		}
+	}
+
+	&__social-icon {
+		flex-shrink: 0;
+		@include square(20px);
+	}
+
+	&__social-name {
+	}
+}
